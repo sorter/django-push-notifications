@@ -55,6 +55,9 @@ def _apns_create_socket(address_tuple):
 
 
 def _apns_create_socket_to_push():
+    try:
+	return _apns_create_socket((SETTINGS["APNS_HOST"], SETTINGS["APNS_PORT"]))
+    except Exception:
 	return _apns_create_socket((SETTINGS["APNS_HOST"], SETTINGS["APNS_PORT"]))
 
 
